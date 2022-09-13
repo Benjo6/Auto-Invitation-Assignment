@@ -9,6 +9,6 @@ namespace Library.Genderize
     public enum Gender
     {
         male,
-        female
+        female,
     }
 }

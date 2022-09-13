@@ -17,8 +17,7 @@ namespace Library.Models
         public String Mail { get; set; }
         public override string ToString()
         {
-            return $"{Mail} \n Dear {Title} {FirstName} {LastName}" +
-                $"\nIt gives us great joy to invite such an accomplished personality like you to our little business event held at {Location}.\n We will be expecting your presence on {Date}.";
+            return $"{Mail}\nDear {Title}{FirstName} {LastName}\nIt gives us great joy to invite such an accomplished personality like you to our little business event held at {Location}.\nWe will be expecting your presence on {Date}.";
 
         }
     }

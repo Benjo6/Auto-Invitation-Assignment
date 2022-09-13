@@ -52,24 +52,36 @@ namespace REST.Services
             string content = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {
-                GenderizeModel genderize = JsonConvert.DeserializeObject<List<GenderizeModel>>(content).First();
-                _logger.LogInformation($"The Gender of the {firstname} is {genderize}");
 
-                if (genderize.Gender == Gender.male)
+                if (!JsonConvert.DeserializeObject<List<GenderizeModel>>(content).First().Gender.Equals(null))
                 {
-                    if (genderize.Probability > 0.90)
-                        invitation.Title = "Mr.";
+                    GenderizeModel genderize = JsonConvert.DeserializeObject<List<GenderizeModel>>(content).First();
+
+                    _logger.LogInformation($"The Gender of the {firstname} is {genderize}");
+
+                    if (genderize.Gender == Gender.male)
+                    {
+                        if (genderize.Probability > 0.90)
+                            invitation.Title = "Mr.";
+                        else
+                            invitation.Title = "";
+
+                    }
+                    else if (genderize.Gender == Gender.female)
+                    {
+                        if (genderize.Probability > 0.90)
+                            invitation.Title = "Mrs.";
+                        else
+                            invitation.Title = "";
+                    }
                     else
+                    {
                         invitation.Title = "";
-
-                }
-                else if (genderize.Gender == Gender.female)
-                {
-                    if (genderize.Probability > 0.90)
-                        invitation.Title = "Mrs.";
+                    }
                 }
                 else
                     invitation.Title = "";
+
             }
 
 
@@ -109,24 +121,31 @@ namespace REST.Services
             string content = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {
-                GenderizeModel genderize = JsonConvert.DeserializeObject<List<GenderizeModel>>(content).First();
-                _logger.LogInformation($"The Gender of the {firstname} is {genderize}");
-
-                if (genderize.Gender == Gender.male)
+                if (JsonConvert.DeserializeObject<List<GenderizeModel>>(content).First() == null)
                 {
-                    if (genderize.Probability > 0.90)
-                        invitation.Title = "Mr.";
-                    else
-                        invitation.Title = "";
-
-                }
-                else if (genderize.Gender == Gender.female)
-                {
-                    if (genderize.Probability > 0.90)
-                        invitation.Title = "Mrs.";
+                    invitation.Title = "";
                 }
                 else
-                    invitation.Title = "";
+                {
+                    GenderizeModel genderize = JsonConvert.DeserializeObject<List<GenderizeModel>>(content).First();
+                    _logger.LogInformation($"The Gender of the {firstname} is {genderize}");
+
+                    if (genderize.Gender == Gender.male)
+                    {
+                        if (genderize.Probability > 0.90)
+                            invitation.Title = "Mr.";
+                        else
+                            invitation.Title = "";
+
+                    }
+                    else if (genderize.Gender == Gender.female)
+                    {
+                        if (genderize.Probability > 0.90)
+                            invitation.Title = "Mrs.";
+                    }
+                    else
+                        invitation.Title = "";
+                }
             }
 
 
@@ -171,24 +190,31 @@ namespace REST.Services
             string content = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {
-                GenderizeModel genderize = JsonConvert.DeserializeObject<List<GenderizeModel>>(content).First();
-                _logger.LogInformation($"The Gender of the {firstname} is {genderize}");
-
-                if (genderize.Gender == Gender.male)
+                if (JsonConvert.DeserializeObject<List<GenderizeModel>>(content).First() == null)
                 {
-                    if (genderize.Probability > 0.90)
-                        invitation.Title = "Mr.";
-                    else
-                        invitation.Title = "";
-
-                }
-                else if (genderize.Gender == Gender.female)
-                {
-                    if (genderize.Probability > 0.90)
-                        invitation.Title = "Mrs.";
+                    invitation.Title = "";
                 }
                 else
-                    invitation.Title = "";
+                {
+                    GenderizeModel genderize = JsonConvert.DeserializeObject<List<GenderizeModel>>(content).First();
+                    _logger.LogInformation($"The Gender of the {firstname} is {genderize}");
+
+                    if (genderize.Gender == Gender.male)
+                    {
+                        if (genderize.Probability > 0.90)
+                            invitation.Title = "Mr.";
+                        else
+                            invitation.Title = "";
+
+                    }
+                    else if (genderize.Gender == Gender.female)
+                    {
+                        if (genderize.Probability > 0.90)
+                            invitation.Title = "Mrs.";
+                    }
+                    else
+                        invitation.Title = "";
+                }
             }
             var builder = new BodyBuilder();
             builder.HtmlBody = invitation.ToString();
