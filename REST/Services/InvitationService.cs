@@ -74,10 +74,7 @@ namespace REST.Services
                         else
                             invitation.Title = "";
                     }
-                    else
-                    {
-                        invitation.Title = "";
-                    }
+                    
                 }
                 else
                     invitation.Title = "";
@@ -121,12 +118,9 @@ namespace REST.Services
             string content = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {
-                if (JsonConvert.DeserializeObject<List<GenderizeModel>>(content).First() == null)
+                if (!JsonConvert.DeserializeObject<List<GenderizeModel>>(content).First().Gender.Equals(null))
                 {
-                    invitation.Title = "";
-                }
-                else
-                {
+
                     GenderizeModel genderize = JsonConvert.DeserializeObject<List<GenderizeModel>>(content).First();
                     _logger.LogInformation($"The Gender of the {firstname} is {genderize}");
 
@@ -143,9 +137,9 @@ namespace REST.Services
                         if (genderize.Probability > 0.90)
                             invitation.Title = "Mrs.";
                     }
-                    else
-                        invitation.Title = "";
+                    
                 }
+                else { invitation.Title = ""; }
             }
 
 
@@ -190,11 +184,7 @@ namespace REST.Services
             string content = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {
-                if (JsonConvert.DeserializeObject<List<GenderizeModel>>(content).First() == null)
-                {
-                    invitation.Title = "";
-                }
-                else
+                if (!JsonConvert.DeserializeObject<List<GenderizeModel>>(content).First().Gender.Equals(null))
                 {
                     GenderizeModel genderize = JsonConvert.DeserializeObject<List<GenderizeModel>>(content).First();
                     _logger.LogInformation($"The Gender of the {firstname} is {genderize}");
@@ -212,8 +202,11 @@ namespace REST.Services
                         if (genderize.Probability > 0.90)
                             invitation.Title = "Mrs.";
                     }
-                    else
-                        invitation.Title = "";
+
+                }
+                else
+                {
+                    invitation.Title = "";
                 }
             }
             var builder = new BodyBuilder();
