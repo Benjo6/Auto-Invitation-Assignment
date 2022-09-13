@@ -37,6 +37,6 @@ MyCurrentIP() = checks the nationality based on your own IP into the WCF Service
 
 2. Make the start-up projects into both REST and SOAP otherwise will the REST request not be successful. (You can't get the IPs to check nationality without running the SOAP project)
 
-1a. If you want to try the SendEmail() and want to see if the program works then you have to go to this site: https://www.wpoven.com/tools/free-smtp-server-for-testing
+3. If you want to try the SendEmail() and want to see if the program works then you have to go to this site: https://www.wpoven.com/tools/free-smtp-server-for-testing
 
-2a: In the input space you enter TheInvitator@legit.mail and the program should be successful.
+4: In the input space you enter TheInvitator@legit.mail and the program should be successful.
