@@ -39,4 +39,4 @@ MyCurrentIP() = checks the nationality based on your own IP into the WCF Service
 
 3. If you want to try the SendEmail() and want to see if the program works then you have to go to this site: https://www.wpoven.com/tools/free-smtp-server-for-testing
 
-4: In the input space you enter TheInvitator@legit.mail and the program should be successful.
+4. In the input space you enter TheInvitator@legit.mail and the program should be successful.
