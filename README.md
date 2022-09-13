@@ -4,7 +4,7 @@ Your dev team is responsible for automatically generating the content of the inv
 
 Your solution must involve at least one SOAP and one REST services.
 
-The invitation starts with the text: “Dear <title> <name>,” and then continues with the facts about
+The invitation starts with the text: “Dear <title> < name >,” and then continues with the facts about
 the meeting.
 The <title> is one of the following:
 - “Mr.” – for male recipients
