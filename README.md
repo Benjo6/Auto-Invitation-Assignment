@@ -31,7 +31,7 @@ InputtedIP(string ip) = checks the nationality inputted IP into the WCF Service
 MyCurrentIP() = checks the nationality based on your own IP into the WCF Service
 
 
-### How to run the program.
+### How to run the program:
 
 1. Clone the project
 
